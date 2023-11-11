@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Média Aritmética (a)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"/>
+</head>
+<body>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        h3{
+            color: #22162B;
+            font-size: 28px;
+        }
+
+        body{
+            background: #F39C6B;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container{
+            width: 600px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 40px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .blue { color: blue; }
+        .red { color: red; }
+
+        @media (max-width: 500px) {
+            
+            .container {
+                transition: 0.5s;
+                width: 300px;
+            }
+            
+            h3 {
+                transition: 0.5s;
+                font-size: 22px;
+            }
+            
+            .item i {
+                transition: 0.5s;
+                font-size: 12px;
+
+            }
+        }
+
+    </style>
+
+    <div class="container">
+        <small><a href="index.html">INÍCIO</a></small>
+        <h3>Média Aritmética (a)</h3>
+        <p style="font-weight: 500;">A média é:<br> <span id="nota"></span></p>
+        <p style="font-weight: 500;">Status:<br> <span id="mensagem"></span></p>
+    </div>
+
+    <script>
+
+        var var1;
+        var var2;
+
+        function obterNumero(mensagem) {
+            var input;
+            do {
+                input = prompt(mensagem);
+                if (input === null) {
+                    return null;
+                }
+                if (isNaN(input)) {
+                    alert("Por favor, digite um número válido.");
+                }
+            } while (isNaN(input)); 
+            return parseFloat(input);
+        }
+
+        var1 = obterNumero("Digite o 1º número:");
+        if (var1 === null) {
+            alert("Operação cancelada.");
+        } else {
+            var2 = obterNumero("Digite o 2º número:");
+            if (var2 === null) {
+                alert("Operação cancelada.");
+            } else {
+                var media = (var1 + var2) / 2;
+
+                var mensagem;
+                var corClass;
+                var iconClass;
+
+                if (media >= 6) {
+                    mensagem = "Aprovado";
+                    corClass = "blue";
+                    iconClass = "fa-smile";
+                } else {
+                    mensagem = "Reprovado";
+                    corClass = "red";
+                    iconClass = "fa-frown";
+                }
+
+                document.getElementById("nota").innerHTML = "<span class='" + corClass + "'>" + media.toFixed(2) + " <i class='fas " + iconClass + "'></i></span>";
+                document.getElementById("mensagem").innerHTML = "<span class='" + corClass + "'>" + mensagem + "</span>";
+            }
+        }
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade ADS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"/>
+</head>
+<body>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        h3{
+            color: #22162B;
+            font-size: 28px;
+        }
+
+        body{
+            background: #7752FE;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container{
+            width: 600px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 40px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .item{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .item i {
+            font-size: 28px;
+
+        }
+
+        .item h3 {
+            margin-left: 10px;
+        }
+
+        .item h3 a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .item h3 a:hover {
+            text-decoration: none;
+            color: #F39C6B;
+            transition: 0.5s;
+        }
+
+        @media (max-width: 800px) {
+            .container {
+                transition: 0.5s;
+                width: 400px;
+            }
+            
+            h3 {
+                font-size: 16px;
+            }
+            
+            .item i {
+                transition: 0.5s;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            
+            .container {
+                transition: 0.5s;
+                width: 300px;
+            }
+            
+            h3 {
+                transition: 0.5s;
+                font-size: 12px;
+            }
+            
+            .item i {
+                transition: 0.5s;
+                font-size: 12px;
+            }
+        }
+
+    </style>
+
+    <div class="container">
+        <div class="item">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            <h3><a href="atividade-1-a.html" target="_blank">1 - Atividade (a)</a></h3>
+            <h3><a href="atividade-1-b.html" target="_blank"> | Atividade (b)</a></h3>
+        </div>
+        <div class="item">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            <h3><a href="calculo-imc.html" target="_blank">2 - Atividade</a></h3>
+        </div>
+        <div class="item">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            <h3><a href="append-child.html" target="_blank">3 - Atividade</a></h3>
+        </div>
+    </div>
+    
+</body>
+</html>

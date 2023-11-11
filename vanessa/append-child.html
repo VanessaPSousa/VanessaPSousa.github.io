@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Append Child</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"/>
+</head>
+<body>
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        h3{
+            color: #22162B;
+            font-size: 28px;
+        }
+
+        body{
+            background: #AE445A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container{
+            width: 600px;
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 40px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        *:focus {
+            outline: none;
+        }
+
+        .form{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: start;
+            gap: 10px;
+        }
+
+        #itemText{
+            width: 100%;
+            height: 50px;
+            border-radius: 10px;
+            padding: 5px 10px;
+            border: none;
+            background: #E8E9F3;
+        }
+
+        .form button{
+            background: #46237A;
+            color: #fff;
+            padding: 5px 5px;
+            height: 50px;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+            width: 100px;
+        }
+
+        .form button:hover{
+            transition: 0.5s;
+            background: #22162B;
+            color: #fff;
+            padding: 5px 5px;
+            height: 50px;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+            width: 100px;
+        }
+
+        .radio-item{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .radio-item p{
+            margin-left: 10px;
+        }
+
+        @media (max-width: 500px) {
+        
+            .container {
+                transition: 0.5s;
+                width: 350px;
+            }
+
+            h3 {
+                transition: 0.5s;
+                font-size: 22px;
+            }
+            
+            .item i {
+                transition: 0.5s;
+                font-size: 12px;
+            }
+        }
+
+    </style>
+
+    <div class="container">
+        <small><a href="index.html">INÍCIO</a></small>
+        <h3>Append Child</h3>
+        <div class="form">
+            <ul id="myList">
+                <li>Uva</li>
+                <li>Banana</li>
+            </ul><br>
+            <label for="itemText">Adicione um item:</label>
+            <input type="text" id="itemText" value="Morango">
+            <label>Escolha uma cor:</label>
+            <div class="radio-item">
+                <input type="radio" name="colors" value="pink" checked>
+                <p>Rosa</p>
+            </div>
+            <div class="radio-item">
+                <input type="radio" name="colors" value="purple">
+                <p>Roxo</p>
+            </div>
+            <div class="radio-item">
+                <input type="radio" name="colors" value="blue">
+                <p>Azul</p>
+            </div>
+              <p>Escolha uma cor para adicionar ao elemento</p>
+              <button id="appendButton">Adicionar</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("appendButton").addEventListener("click", function() {
+          const itemText = document.getElementById("itemText").value;
+          const selectedColor = document.querySelector('input[name="colors"]:checked').value;
+          const node = document.createElement("li");
+          node.style.color = selectedColor;
+          const textnode = document.createTextNode(itemText);
+          node.appendChild(textnode);
+          document.getElementById("myList").appendChild(node);
+        });
+    </script>
+
+</body>
+</html>
