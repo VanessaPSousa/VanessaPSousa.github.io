@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo IMC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"/>
+</head>
+<body>
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        h3{
+            color: #22162B;
+            font-size: 28px;
+        }
+
+        body{
+            background: #7743DB;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container{
+            width: 600px;
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 40px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        *:focus {
+            outline: none;
+        }
+
+        .form{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: start;
+            gap: 10px;
+        }
+
+        .form input{
+            width: 100%;
+            height: 50px;
+            border-radius: 10px;
+            padding: 5px 10px;
+            border: none;
+            background: #E8E9F3;
+        }
+
+        .form button{
+            background: #C3ACD0;
+            padding: 5px 5px;
+            height: 50px;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+            width: 100px;
+        }
+
+        .form button:hover{
+            transition: 0.5s;
+            background: #22162B;
+            color: #fff;
+            padding: 5px 5px;
+            height: 50px;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+            width: 100px;
+        }
+
+        
+
+        @media (max-width: 500px) {
+            .container {
+                transition: 0.5s;
+                width: 300px;
+            }
+            
+            h3 {
+                transition: 0.5s;
+                font-size: 22px;
+            }
+            
+            .item i {
+                transition: 0.5s;
+                font-size: 12px;
+
+            }
+        }
+
+    </style>
+
+    <div class="container">
+
+        <small><a href="index.html">INÍCIO</a></small>
+        <h3>Cálculo de IMC</h3>
+        <div class="form">
+            <label for="peso">Peso (kg): Ex: 60 KG </label>
+            <input type="number" id="peso" step="0.1" required><br>
+            <label for="altura">Altura (m): Ex: 1,73 </label>
+            <input type="number" id="altura" step="0.01" required><br>
+            <button onclick="calcularIMC()">Calcular</button>
+        </div>
+
+        <div id="resultado"></div>
+        
+    </div>
+
+
+    <script>
+
+        function calcularIMC() {
+            var pesoInput = document.getElementById('peso').value.replace(",", ".");
+            var alturaInput = document.getElementById('altura').value.replace(",", ".");
+
+            var peso = parseFloat(pesoInput);
+            var altura = parseFloat(alturaInput);
+
+            if (!isNaN(peso) && !isNaN(altura) && altura > 0) {
+                var imc = peso / (altura * altura);
+                var resultadoDiv = document.getElementById('resultado');
+                resultadoDiv.innerHTML = 'Seu IMC é: ' + imc.toFixed(2);
+            } else {
+                alert('Por favor, insira valores válidos para peso e altura.');
+            }
+        }
+        
+    </script>
+    
+</body>
+</html>
